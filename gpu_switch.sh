@@ -13,9 +13,9 @@ if lsmod | grep -q nvidia ; then
     # /etc/X11/xorg.conf.d/90-mhwd.conf symlinks to below
     cp ./90-mhwd.conf.intel /etc/X11/mhwd.d/nvidia.conf
     cp ./lightdm.conf.intel /etc/lightdm/lightdm.conf
-    cp ./.xinitrc.intel /home/jramapuram/.xinitrc
+    cp ./.xinitrc.intel ~/.xinitrc
     chown jramapuram:jramapuram ~/.xinitrc
-    cp ./compton.conf.glx /home/.config/compton.conf
+    cp ./compton.conf.glx ~/.config/compton.conf
     chown jramapuram:jramapuram ~/.config/compton.conf
     systemctl stop lightdm.service
     rmmod nvidia_drm nvidia_uvm nvidia_modeset nvidia
@@ -25,9 +25,9 @@ else
     echo "trying to load nvidia"
     cp ./90-mhwd.conf.nvidia /etc/X11/mhwd.d/nvidia.conf
     cp ./lightdm.conf.nvidia /etc/lightdm/lightdm.conf
-    cp ./.xinitrc.nvidia /home/jramapuram/.xinitrc
+    cp ./.xinitrc.nvidia ~/.xinitrc
     chown jramapuram:jramapuram ~/.xinitrc
-    cp ./compton.conf.noglx /home/.config/compton.conf
+    cp ./compton.conf.noglx ~/.config/compton.conf
     chown jramapuram:jramapuram ~/.config/compton.conf
     modprobe bbswitch
     echo "ON" > /proc/acpi/bbswitch

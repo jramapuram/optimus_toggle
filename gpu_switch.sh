@@ -4,6 +4,9 @@ if ! [ $(id -u) = 0 ]; then
     exit 1
 fi
 
+# this is required for bbswitch
+cp mhwd-gpu.conf.base /etc/modprobe.d/mhwd-gpu.conf
+
 if lsmod | grep -q nvidia ; then
     echo "trying to unload nvidia module"
     # /etc/X11/xorg.conf.d/90-mhwd.conf symlinks to below
